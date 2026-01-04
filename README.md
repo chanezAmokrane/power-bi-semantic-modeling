@@ -2,6 +2,9 @@
 <!--        README.md          -->
 <!-- ========================= -->
 
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=120&text=Modélisation%20des%20données%20dans%20Power%20BI&fontSize=36&fontAlignY=50&animation=fadeIn" />
+</p>
 
 <p align="center">
   <i>Pas un cours.</i><br/>

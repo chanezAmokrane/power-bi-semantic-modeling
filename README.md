@@ -20,18 +20,6 @@
 
 ---
 
-## 🎯 What this repo is about
-
-> This repository shows how I **perceive and build data models** when the end goal is **Power BI analysis** —  
-> not just storing data, but making it **readable, reliable, and explorable**.
-
-✅ Practical modeling thinking  
-✅ Power BI-oriented structure  
-✅ Clear separation between preparation vs analysis  
-✅ Concepts recruiters actually care about
-
----
-
 ## 🧠 From storing data → answering questions
 
 ### ✅ In a classic database mindset
@@ -121,18 +109,6 @@ Once tables are prepared (merged or not), Power BI defines relationships for ana
 
 ---
 
-## 🧾 Key concepts covered (quick map)
-
-| Concept | Classic DB | Power BI |
-|---|---|---|
-| Normalization | ✅ Core goal | ⚠️ Useful, but not always priority |
-| Primary / Foreign keys | ✅ Essential | ✅ Essential for relationships |
-| Cardinality (1-*, *-*) | ✅ Modeling | ✅ Modeling |
-| Joins | ✅ SQL | ✅ Power Query (Merge Queries) |
-| Facts / Dimensions | ⚠️ Not typical | ✅ Central |
-
----
-
 ## ✨ Final note
 
 Power BI modeling is not about knowing words like “fact table” or “star schema”.  
@@ -141,7 +117,4 @@ It’s about building a model that people can actually use to answer questions.
 > A good model feels obvious.  
 > A great model feels invisible.
 
----
 
-### 📬 Want to talk?
-If you’re a recruiter or a team looking for someone who can bridge **data + clarity + modeling**, feel free to reach out.

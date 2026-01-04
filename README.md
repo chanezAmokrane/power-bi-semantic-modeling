@@ -96,21 +96,4 @@ Grâce à **Merge Queries**, on peut :
 - choisir le type de jointure (left, right, inner…)  
 - les modifier facilement  
 
-### 🧩 Le modèle Power BI exploite ensuite ces données
-Une fois les tables préparées, Power BI utilise des relations pour l’analyse.
 
-> Même logique relationnelle,  
-> mais les jointures sont construites **pendant la préparation des données**, pas pendant l’analyse.
-
----
-
-## ✨ Note finale
-
-La modélisation dans Power BI ne consiste pas à connaître des termes  
-comme « table de faits » ou « schéma en étoile ».
-
-Elle consiste à construire un modèle que l’on peut utiliser  
-sans avoir besoin de comprendre la base d’origine.
-
-> Un bon modèle est évident.  
-> Un excellent modèle devient invisible.

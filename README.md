@@ -1,69 +1,147 @@
----
+<!-- ========================= -->
+<!--        README.md          -->
+<!-- ========================= -->
 
-## 🔗 Power BI : joins en Power Query, relations dans le modèle
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&text=Data%20Modeling%20in%20Power%20BI&fontAlign=50&fontAlignY=35&desc=How%20I%20think%20about%20data%20models%20(SQL%20→%20Power%20BI)&descAlign=50&descAlignY=60" />
+</p>
 
-![Power BI](https://img.shields.io/badge/Power%20BI-Modeling-yellow?style=for-the-badge)
-![Power Query](https://img.shields.io/badge/Power%20Query-M%20Language-blue?style=for-the-badge)
-![Join Logic](https://img.shields.io/badge/Join-Left%20%7C%20Right%20%7C%20Inner%20%7C%20Full-informational?style=for-the-badge)
+<p align="center">
+  <img src="https://img.shields.io/badge/Power%20BI-Modeling-F2C811?logo=powerbi&logoColor=000" />
+  <img src="https://img.shields.io/badge/SQL-Relational%20Thinking-2F80ED?logo=postgresql&logoColor=fff" />
+  <img src="https://img.shields.io/badge/Power%20Query-Merge%20Queries-00A4EF?logo=microsoft&logoColor=fff" />
+  <img src="https://img.shields.io/badge/Focus-Analytics%20Ready-22C55E" />
+</p>
 
-> [!IMPORTANT]
-> Dans Power BI, le choix du type de jointure (LEFT / RIGHT / INNER / FULL) se fait dans Power Query via <i>Merge Queries</i>.  
-> Le modèle Power BI, lui, gère ensuite des <i>Relationships</i> entre tables pour la navigation analytique.
-
----
-
-### 🧩 1) Créer une jointure : Merge Queries (Power Query)
-
-Dans Power BI, si je veux “créer une jointure” au sens SQL (choisir LEFT / RIGHT / INNER / FULL), je passe par :
-
-- Power Query Editor
-- Home → Merge Queries
-- choix des colonnes de matching
-- choix du Join kind : Left Outer / Right Outer / Inner / Full Outer / Anti Join
-
-> [!TIP]
-> Merge Queries = jointure au moment de la préparation (ETL).  
-> C’est ici que je matérialise le résultat (table fusionnée) avant d’arriver au modèle.
+<p align="center">
+  <i>Not a textbook. A mindset.</i><br/>
+  <i>From “storing data” to “modeling for analysis”.</i>
+</p>
 
 ---
 
-### 🧠 2) Exploiter les tables : Relationships (Model view)
+## 🎯 What this repo is about
 
-Une fois les données préparées, Power BI utilise des relations dans la vue Modèle :
-- cardinalité : 1:* , *:* , 1:1
-- direction de filtrage : Single / Both
-- clé de relation (dimension → fait dans l’idéal)
+> This repository shows how I **perceive and build data models** when the end goal is **Power BI analysis** —  
+> not just storing data, but making it **readable, reliable, and explorable**.
 
-> [!NOTE]
-> Le modèle Power BI ne me demande pas d’écrire une jointure SQL à chaque visuel.  
-> Il s’appuie sur les <i>relationships</i> pour propager les filtres et calculer correctement les mesures.
-
----
-
-### ⚙️ 3) Lecture “technique” (ce que ça veut dire concrètement)
-
-┌─ Power Query (ETL) ──────────────────────────────┐  
-│ Merge Queries = choisir le type de JOIN          │  
-│ Résultat = données combinées / enrichies         │  
-└──────────────────────────────────────────────────┘  
-                ↓ chargement  
-┌─ Model (Semantic Layer) ─────────────────────────┐  
-│ Relationships = structure analytique             │  
-│ Cardinality + filter direction = comportement    │  
-└──────────────────────────────────────────────────┘  
-
-> [!WARNING]
-> Beaucoup d’erreurs Power BI viennent d’un mauvais choix :  
-> faire une jointure (Merge) alors qu’une relation suffisait, ou l’inverse.  
-> Mon réflexe : je décide selon l’objectif (préparer vs analyser).
+✅ Practical modeling thinking  
+✅ Power BI-oriented structure  
+✅ Clear separation between preparation vs analysis  
+✅ Concepts recruiters actually care about
 
 ---
 
-### 🗺️ Mini schéma (mental model)
+## 🧠 From storing data → answering questions
 
-```mermaid
-flowchart LR
-  A[Source tables] --> B[Power Query: Merge Queries<br/>LEFT / RIGHT / INNER / FULL]
-  B --> C[Loaded tables]
-  C --> D[Model view: Relationships<br/>Cardinality + Filter direction]
-  D --> E[Reports: visuals + DAX measures]
+### ✅ In a classic database mindset
+- Reduce redundancy  
+- Keep data consistent  
+- Protect integrity  
+- Use keys + relationships  
+- Rebuild information when needed with SQL joins
+
+### ✅ In a Power BI mindset
+Power BI changes the question:
+
+> “How is data stored?” ❌  
+> “What happened? How much? When? For whom?” ✅
+
+Power BI forces the model to be:
+- **analysis-first**
+- **human-readable**
+- **performance-aware**
+
+---
+
+## 🧩 How Power BI sees the database
+
+In Power BI, a database is not only “tables connected together”.  
+It becomes an **analytic model** designed for:
+- 🔎 exploration
+- 📊 reporting
+- ⚡ fast filtering & aggregation
+- 🧭 intuitive navigation for business users
+
+That’s why we think in:
+
+### 📌 Fact table
+The measurable events (sales, transactions, amounts, quantities).
+
+### 📌 Dimension tables
+The context (customers, products, dates, locations).
+
+> Facts = what happened  
+> Dimensions = how we describe what happened
+
+---
+
+## ⭐ Star Schema vs ❄️ Snowflake Schema
+
+### ⭐ Star schema (often the default in Power BI)
+- Easier to read
+- Simpler relationships
+- Usually better performance
+
+### ❄️ Snowflake schema
+- Less redundancy
+- More normalized
+- More complex model
+
+📍 It’s not “good vs bad”.  
+It’s a design choice depending on:
+- data size
+- business needs
+- expected performance
+- clarity for end users
+
+---
+
+## 🔗 Relationships and joins in Power BI (the important nuance)
+
+In classic databases, we express relationships through SQL joins:
+- INNER JOIN
+- LEFT JOIN
+- RIGHT JOIN
+- etc.
+
+In Power BI, the approach is different:
+
+### 🛠️ Joins are created upstream in Power Query
+✅ Use **Merge Queries** to:
+- create new joins
+- choose the join type (left/right/inner…)
+- adjust it when needed
+
+### 🧩 Then the Power BI model uses relationships
+Once tables are prepared (merged or not), Power BI defines relationships for analysis.
+
+> Same relational logic —  
+> but Power BI shifts join construction to the **data preparation phase**, before analysis.
+
+---
+
+## 🧾 Key concepts covered (quick map)
+
+| Concept | Classic DB | Power BI |
+|---|---|---|
+| Normalization | ✅ Core goal | ⚠️ Useful, but not always priority |
+| Primary / Foreign keys | ✅ Essential | ✅ Essential for relationships |
+| Cardinality (1-*, *-*) | ✅ Modeling | ✅ Modeling |
+| Joins | ✅ SQL | ✅ Power Query (Merge Queries) |
+| Facts / Dimensions | ⚠️ Not typical | ✅ Central |
+
+---
+
+## ✨ Final note
+
+Power BI modeling is not about knowing words like “fact table” or “star schema”.  
+It’s about building a model that people can actually use to answer questions.
+
+> A good model feels obvious.  
+> A great model feels invisible.
+
+---
+
+### 📬 Want to talk?
+If you’re a recruiter or a team looking for someone who can bridge **data + clarity + modeling**, feel free to reach out.

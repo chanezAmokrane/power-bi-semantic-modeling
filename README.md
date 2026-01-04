@@ -19,127 +19,92 @@
 </p>
 
 ---
+# 🧠 Modélisation des données – Vision Power BI
 
-## 🎯 What this repo is about
+Ce dépôt ne présente pas un cours théorique de bases de données.  
+Il montre comment j’aborde la modélisation des données lorsqu’elles sont destinées à être exploitées dans **Power BI**.
 
-> This repository shows how I **perceive and build data models** when the end goal is **Power BI analysis** —  
-> not just storing data, but making it **readable, reliable, and explorable**.
-
-✅ Practical modeling thinking  
-✅ Power BI-oriented structure  
-✅ Clear separation between preparation vs analysis  
-✅ Concepts recruiters actually care about
+L’objectif n’est pas uniquement de stocker des données correctement,  
+mais de construire un **modèle clair, cohérent et orienté analyse**.
 
 ---
 
-## 🧠 From storing data → answering questions
+## Du modèle relationnel à l’analyse
 
-### ✅ In a classic database mindset
-- Reduce redundancy  
-- Keep data consistent  
-- Protect integrity  
-- Use keys + relationships  
-- Rebuild information when needed with SQL joins
+Dans une base de données classique, la modélisation vise principalement à :
+- éviter la redondance  
+- garantir la cohérence  
+- assurer l’intégrité des données  
 
-### ✅ In a Power BI mindset
-Power BI changes the question:
+On raisonne en tables, clés primaires, clés étrangères, relations et cardinalités.  
+Les jointures SQL permettent de reconstruire l’information lorsque c’est nécessaire.
 
-> “How is data stored?” ❌  
-> “What happened? How much? When? For whom?” ✅
-
-Power BI forces the model to be:
-- **analysis-first**
-- **human-readable**
-- **performance-aware**
+Ce modèle est adapté aux usages transactionnels.
 
 ---
 
-## 🧩 How Power BI sees the database
+## Comment Power BI change la perception de la base de données
 
-In Power BI, a database is not only “tables connected together”.  
-It becomes an **analytic model** designed for:
-- 🔎 exploration
-- 📊 reporting
-- ⚡ fast filtering & aggregation
-- 🧭 intuitive navigation for business users
+Dans Power BI, la base de données n’est plus pensée uniquement pour le stockage,  
+mais comme un **modèle analytique**.
 
-That’s why we think in:
+On ne se demande plus seulement :
+> Comment la donnée est stockée ?
 
-### 📌 Fact table
-The measurable events (sales, transactions, amounts, quantities).
+Mais plutôt :
+> Que s’est-il passé ?  
+> Combien ?  
+> Quand ?  
+> Pour qui ?
 
-### 📌 Dimension tables
-The context (customers, products, dates, locations).
-
-> Facts = what happened  
-> Dimensions = how we describe what happened
+La modélisation est donc guidée par l’analyse et la lecture des données.
 
 ---
 
-## ⭐ Star Schema vs ❄️ Snowflake Schema
+## Tables de faits et tables de dimensions
 
-### ⭐ Star schema (often the default in Power BI)
-- Easier to read
-- Simpler relationships
-- Usually better performance
+Dans ce contexte :
+- la **table de faits** centralise les événements mesurables  
+- les **tables de dimensions** apportent le contexte nécessaire à l’analyse  
 
-### ❄️ Snowflake schema
-- Less redundancy
-- More normalized
-- More complex model
-
-📍 It’s not “good vs bad”.  
-It’s a design choice depending on:
-- data size
-- business needs
-- expected performance
-- clarity for end users
+Il ne s’agit pas d’un nouveau modèle opposé au relationnel,  
+mais d’une organisation des données orientée usage analytique.
 
 ---
 
-## 🔗 Relationships and joins in Power BI (the important nuance)
+## Schéma en étoile et schéma en flocon
 
-In classic databases, we express relationships through SQL joins:
-- INNER JOIN
-- LEFT JOIN
-- RIGHT JOIN
-- etc.
+Dans Power BI :
+- le **schéma en étoile** est souvent privilégié pour sa lisibilité et ses performances  
+- le **schéma en flocon** réduit la redondance mais introduit plus de complexité  
 
-In Power BI, the approach is different:
-
-### 🛠️ Joins are created upstream in Power Query
-✅ Use **Merge Queries** to:
-- create new joins
-- choose the join type (left/right/inner…)
-- adjust it when needed
-
-### 🧩 Then the Power BI model uses relationships
-Once tables are prepared (merged or not), Power BI defines relationships for analysis.
-
-> Same relational logic —  
-> but Power BI shifts join construction to the **data preparation phase**, before analysis.
+Le choix dépend des besoins métiers, du volume de données et de la clarté attendue pour l’utilisateur final.
 
 ---
 
-## 🧾 Key concepts covered (quick map)
+## Jointures et relations dans Power BI
 
-| Concept | Classic DB | Power BI |
-|---|---|---|
-| Normalization | ✅ Core goal | ⚠️ Useful, but not always priority |
-| Primary / Foreign keys | ✅ Essential | ✅ Essential for relationships |
-| Cardinality (1-*, *-*) | ✅ Modeling | ✅ Modeling |
-| Joins | ✅ SQL | ✅ Power Query (Merge Queries) |
-| Facts / Dimensions | ⚠️ Not typical | ✅ Central |
+Dans un modèle classique, les relations entre les tables sont exprimées via des jointures SQL  
+(INNER JOIN, LEFT JOIN, RIGHT JOIN, etc.).
+
+Dans Power BI, les jointures sont créées et modifiées **en amont** dans **Power Query**,  
+à l’aide de **Merge Queries**, où l’on définit le type de jointure à appliquer.
+
+Le modèle Power BI exploite ensuite ces données préparées à travers des relations entre les tables.
+
+La logique relationnelle reste la même,  
+mais Power BI déplace la construction des jointures vers la phase de préparation des données.
 
 ---
 
-## ✨ Final note
+## En résumé
 
-Power BI modeling is not about knowing words like “fact table” or “star schema”.  
-It’s about building a model that people can actually use to answer questions.
+Power BI impose de penser la base de données non seulement comme un espace de stockage,  
+mais comme un **support d’analyse**.
 
-> A good model feels obvious.  
-> A great model feels invisible.
+Ce dépôt reflète cette approche :  
+concevoir un modèle de données compréhensible, cohérent et réellement exploitable.
+
 
 ---
 

@@ -3,118 +3,121 @@
 <!-- ========================= -->
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&text=Data%20Modeling%20in%20Power%20BI&fontAlign=50&fontAlignY=35&desc=How%20I%20think%20about%20data%20models%20(SQL%20→%20Power%20BI)&descAlign=50&descAlignY=60" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&text=Modélisation%20des%20données%20dans%20Power%20BI&fontAlign=50&fontAlignY=35&desc=Ma%20façon%20de%20penser%20les%20modèles%20(SQL%20→%20Power%20BI)&descAlign=50&descAlignY=60" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Power%20BI-Modeling-F2C811?logo=powerbi&logoColor=000" />
-  <img src="https://img.shields.io/badge/SQL-Relational%20Thinking-2F80ED?logo=postgresql&logoColor=fff" />
+  <img src="https://img.shields.io/badge/Power%20BI-Modélisation-F2C811?logo=powerbi&logoColor=000" />
+  <img src="https://img.shields.io/badge/SQL-Pensée%20relationnelle-2F80ED?logo=postgresql&logoColor=fff" />
   <img src="https://img.shields.io/badge/Power%20Query-Merge%20Queries-00A4EF?logo=microsoft&logoColor=fff" />
-  <img src="https://img.shields.io/badge/Focus-Analytics%20Ready-22C55E" />
+  <img src="https://img.shields.io/badge/Objectif-Modèle%20analytique-22C55E" />
 </p>
 
 <p align="center">
-  <i>Not a textbook. A mindset.</i><br/>
-  <i>From “storing data” to “modeling for analysis”.</i>
+  <i>Pas un cours.</i><br/>
+  <i>De « stocker la donnée » à « modéliser pour l’analyse ».</i>
 </p>
 
 ---
 
-## 🧠 From storing data → answering questions
+## 🧠 De stocker des données → répondre à des questions
 
-### ✅ In a classic database mindset
-- Reduce redundancy  
-- Keep data consistent  
-- Protect integrity  
-- Use keys + relationships  
-- Rebuild information when needed with SQL joins
+### ✅ Vision base de données classique
+- Réduire la redondance  
+- Garantir la cohérence  
+- Protéger l’intégrité  
+- Utiliser des clés et des relations  
+- Reconstruire l’information via des jointures SQL  
 
-### ✅ In a Power BI mindset
-Power BI changes the question:
+### ✅ Vision Power BI
+Power BI change la question :
 
-> “How is data stored?” ❌  
-> “What happened? How much? When? For whom?” ✅
+> « Comment la donnée est stockée ? » ❌  
+> « Que s’est-il passé ? Combien ? Quand ? Pour qui ? » ✅
 
-Power BI forces the model to be:
-- **analysis-first**
-- **human-readable**
-- **performance-aware**
-
----
-
-## 🧩 How Power BI sees the database
-
-In Power BI, a database is not only “tables connected together”.  
-It becomes an **analytic model** designed for:
-- 🔎 exploration
-- 📊 reporting
-- ⚡ fast filtering & aggregation
-- 🧭 intuitive navigation for business users
-
-That’s why we think in:
-
-### 📌 Fact table
-The measurable events (sales, transactions, amounts, quantities).
-
-### 📌 Dimension tables
-The context (customers, products, dates, locations).
-
-> Facts = what happened  
-> Dimensions = how we describe what happened
+Le modèle doit être :
+- orienté analyse  
+- lisible pour l’humain  
+- pensé pour la performance  
 
 ---
 
-## ⭐ Star Schema vs ❄️ Snowflake Schema
+## 🧩 Comment Power BI perçoit la base de données
 
-### ⭐ Star schema (often the default in Power BI)
-- Easier to read
-- Simpler relationships
-- Usually better performance
+Dans Power BI, une base de données n’est pas seulement  
+un ensemble de tables reliées entre elles.
 
-### ❄️ Snowflake schema
-- Less redundancy
-- More normalized
-- More complex model
+Elle devient un **modèle analytique**, conçu pour :
+- 🔎 l’exploration  
+- 📊 le reporting  
+- ⚡ le filtrage et l’agrégation rapides  
+- 🧭 une navigation intuitive pour les utilisateurs métiers  
 
-📍 It’s not “good vs bad”.  
-It’s a design choice depending on:
-- data size
-- business needs
-- expected performance
-- clarity for end users
+C’est pour cela que l’on raisonne en :
+
+### 📌 Table de faits
+Les événements mesurables (ventes, transactions, montants, quantités).
+
+### 📌 Tables de dimensions
+Le contexte (clients, produits, dates, localisations).
+
+> Faits = ce qui s’est passé  
+> Dimensions = comment on le décrit  
 
 ---
 
-## 🔗 Relationships and joins in Power BI (the important nuance)
+## ⭐ Schéma en étoile vs ❄️ schéma en flocon
 
-In classic databases, we express relationships through SQL joins:
-- INNER JOIN
-- LEFT JOIN
-- RIGHT JOIN
+### ⭐ Schéma en étoile (souvent privilégié dans Power BI)
+- Plus lisible  
+- Relations plus simples  
+- Meilleures performances analytiques  
+
+### ❄️ Schéma en flocon
+- Moins de redondance  
+- Plus normalisé  
+- Modèle plus complexe  
+
+📍 Il ne s’agit pas de « bon » ou « mauvais » modèle.  
+C’est un choix qui dépend :
+- du volume de données  
+- des besoins métiers  
+- des performances attendues  
+- de la clarté pour l’utilisateur final  
+
+---
+
+## 🔗 Jointures et relations dans Power BI (le point clé)
+
+Dans une base de données classique, les relations sont exprimées via des jointures SQL :
+- INNER JOIN  
+- LEFT JOIN  
+- RIGHT JOIN  
 - etc.
 
-In Power BI, the approach is different:
+Dans Power BI, l’approche est différente.
 
-### 🛠️ Joins are created upstream in Power Query
-✅ Use **Merge Queries** to:
-- create new joins
-- choose the join type (left/right/inner…)
-- adjust it when needed
+### 🛠️ Les jointures sont créées en amont dans Power Query
+Grâce à **Merge Queries**, on peut :
+- créer de nouvelles jointures  
+- choisir le type de jointure (left, right, inner…)  
+- les modifier facilement  
 
-### 🧩 Then the Power BI model uses relationships
-Once tables are prepared (merged or not), Power BI defines relationships for analysis.
+### 🧩 Le modèle Power BI exploite ensuite ces données
+Une fois les tables préparées, Power BI utilise des relations pour l’analyse.
 
-> Same relational logic —  
-> but Power BI shifts join construction to the **data preparation phase**, before analysis.
+> Même logique relationnelle,  
+> mais les jointures sont construites **pendant la préparation des données**, pas pendant l’analyse.
 
 ---
 
-## ✨ Final note
+## ✨ Note finale
 
-Power BI modeling is not about knowing words like “fact table” or “star schema”.  
-It’s about building a model that people can actually use to answer questions.
+La modélisation dans Power BI ne consiste pas à connaître des termes  
+comme « table de faits » ou « schéma en étoile ».
 
-> A good model feels obvious.  
-> A great model feels invisible.
+Elle consiste à construire un modèle que l’on peut utiliser  
+sans avoir besoin de comprendre la base d’origine.
 
-
+> Un bon modèle est évident.  
+> Un excellent modèle devient invisible.

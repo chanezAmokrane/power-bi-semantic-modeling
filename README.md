@@ -3,7 +3,7 @@
 <!-- ========================= -->
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=120&text=Modélisation%20des%20données%20dans%20Power%20BI&fontSize=36&fontAlignY=50&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=120&text=Modélisation%20des%20données%20dans%20Power%20BI&fontSize=36&animation=blinking&fontAlignY=50" />
 </p>
 
 <p align="center">

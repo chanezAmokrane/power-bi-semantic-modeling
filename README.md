@@ -2,16 +2,6 @@
 <!--        README.md          -->
 <!-- ========================= -->
 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&text=Modélisation%20des%20données%20dans%20Power%20BI&fontAlign=50&fontAlignY=35&desc=Ma%20façon%20de%20penser%20les%20modèles%20(SQL%20→%20Power%20BI)&descAlign=50&descAlignY=60" />
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Power%20BI-Modélisation-F2C811?logo=powerbi&logoColor=000" />
-  <img src="https://img.shields.io/badge/SQL-Pensée%20relationnelle-2F80ED?logo=postgresql&logoColor=fff" />
-  <img src="https://img.shields.io/badge/Power%20Query-Merge%20Queries-00A4EF?logo=microsoft&logoColor=fff" />
-  <img src="https://img.shields.io/badge/Objectif-Modèle%20analytique-22C55E" />
-</p>
 
 <p align="center">
   <i>Pas un cours.</i><br/>
